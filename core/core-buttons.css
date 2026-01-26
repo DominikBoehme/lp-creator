@@ -1,0 +1,220 @@
+<style>
+/* =========================================================
+   LP Creator – ai-buttons-and-textlinks.css
+
+   Zweck:
+   - Zentrale Definition für Buttons & Textlinks
+   - Globale Interaktions- & Fokus-Regeln
+
+   Geltungsbereich:
+   - ai-button (alle Varianten)
+   - ai-textlink
+   - teaser-grid__textlink (Chevron-Pattern)
+
+   Regeln:
+   - Darf Typografie enthalten
+   - Darf Farben enthalten
+   - Darf Hover / Focus / Active enthalten
+   - KEIN Modul-spezifisches Layout
+   ========================================================= */
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+/* ---------- Button Base ---------- */
+a.ai-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 16px;
+  min-height:40px;
+  border-radius:9999px;
+  font-size:16px;
+  line-height:1.2;
+  border:1px solid transparent;
+  cursor:pointer;
+  white-space:nowrap;
+  font-weight:700;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+@media (max-width:668px){
+  a.ai-button{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+  }
+}
+
+a.ai-button,
+a.ai-button:link,
+a.ai-button:visited,
+a.ai-button:hover,
+a.ai-button:active,
+a.ai-button:focus,
+a.ai-button:focus-visible{
+  text-decoration:none !important;
+}
+
+a.ai-button:focus,
+a.ai-button:focus-visible{
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+a.ai-button.is-disabled,
+a.ai-button[aria-disabled="true"]{
+  opacity:.5;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+
+/* ---------- Button Variants ---------- */
+
+a.ai-button.button-filled-default,
+a.ai-button.button-filled-default:link,
+a.ai-button.button-filled-default:visited,
+a.ai-button.button-filled-default:focus,
+a.ai-button.button-filled-default:focus-visible{
+  background-color:#333333;
+  color:#ffffff !important;
+  border-color:#333333;
+}
+
+a.ai-button.button-filled-default:hover,
+a.ai-button.button-filled-default:active{
+  background-color:#484848;
+  color:#ffffff !important;
+  border-color:#484848;
+}
+
+
+a.ai-button.button-filled-brand,
+a.ai-button.button-filled-brand:link,
+a.ai-button.button-filled-brand:visited,
+a.ai-button.button-filled-brand:focus,
+a.ai-button.button-filled-brand:focus-visible{
+  background-color:#3DF5DC;
+  color:#333333 !important;
+  border-color:#3DF5DC;
+}
+
+a.ai-button.button-filled-brand:hover,
+a.ai-button.button-filled-brand:active{
+  background-color:#55E6CB;
+  color:#333333 !important;
+  border-color:#55E6CB;
+}
+
+
+a.ai-button.button-outline-strong,
+a.ai-button.button-outline-strong:link,
+a.ai-button.button-outline-strong:visited,
+a.ai-button.button-outline-strong:focus,
+a.ai-button.button-outline-strong:focus-visible{
+  background-color:#ffffff;
+  color:#333333 !important;
+  border-color:#333333;
+}
+
+a.ai-button.button-outline-strong:hover,
+a.ai-button.button-outline-strong:active{
+  background-color:#E8E5E3;
+  color:#333333 !important;
+  border-color:#333333;
+}
+
+
+a.ai-button.button-outline-weak,
+a.ai-button.button-outline-weak:link,
+a.ai-button.button-outline-weak:visited,
+a.ai-button.button-outline-weak:focus,
+a.ai-button.button-outline-weak:focus-visible{
+  background-color:#ffffff;
+  color:#333333 !important;
+  border-color:#BDBBB9;
+}
+
+a.ai-button.button-outline-weak:hover,
+a.ai-button.button-outline-weak:active{
+  background-color:#E8E5E3;
+  color:#333333 !important;
+  border-color:#333333;
+}
+
+
+/* =========================================================
+   TEXTLINKS (Global)
+   ========================================================= */
+
+/* ---------- Base Textlink ---------- */
+
+a.ai-textlink,
+a.ai-textlink:link,
+a.ai-textlink:visited{
+  font-size:16px;
+  line-height:26px;   /* body-large */
+  font-weight:700;    /* bold */
+  color:#333333 !important;
+  text-decoration:none;
+}
+
+a.ai-textlink:hover,
+a.ai-textlink:active{
+  color:#333333 !important;
+  text-decoration:underline;
+}
+
+a.ai-textlink:focus,
+a.ai-textlink:focus-visible{
+  outline:none;
+  color:#333333 !important;
+  text-decoration:underline;
+}
+
+
+/* =========================================================
+   CHEVRON TEXTLINK (Teaser Pattern)
+   ========================================================= */
+
+a.teaser-grid__textlink,
+a.teaser-grid__textlink:link,
+a.teaser-grid__textlink:visited,
+a.teaser-grid__textlink:active,
+a.teaser-grid__textlink:focus,
+a.teaser-grid__textlink:focus-visible{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#333333 !important;
+  text-decoration:none !important;
+  outline:none;
+  box-shadow:none;
+
+  /* body-large-bold */
+  font-size:16px;
+  line-height:26px;
+  font-weight:700;
+}
+
+a.teaser-grid__textlink:hover,
+a.teaser-grid__textlink:active{
+  text-decoration:none !important;
+}
+
+a.teaser-grid__textlink:hover span,
+a.teaser-grid__textlink:active span{
+  text-decoration:underline;
+}
+
+.teaser-grid__textlink-icon{
+  display:inline-block;
+  flex:0 0 auto;
+}
+
+</style>
