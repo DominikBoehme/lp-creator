@@ -359,10 +359,13 @@
 }
 
 .steps-3col__step-line,
-.steps-4col__step-line{
+.steps-4col__step-line {
   flex: 1;
   height: 1px;
+  background-color: #333333;
+  border-color: #333333;
 }
+
 
 .steps-4col__step-line{
   margin-left: 16px;
