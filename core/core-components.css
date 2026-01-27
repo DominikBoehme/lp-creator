@@ -713,6 +713,38 @@
 .checkmark-list__text{
   margin:0;
 }
+/* =========================================================
+   LP Spacer – Vertikaler Abstand zwischen Modulen
+   - .lp-spacer-xl: Desktop 80px | Mobile (<= 767px) 50px
+   - .lp-spacer-l : Desktop 50px | Mobile (<= 767px) 40px
+   ========================================================= */
+
+.lp-spacer-xl,
+.lp-spacer-l {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.lp-spacer-xl {
+  height: 80px;
+}
+
+.lp-spacer-l {
+  height: 50px;
+}
+
+@media (max-width: 767px) {
+  .lp-spacer-xl {
+    height: 50px;
+  }
+
+  .lp-spacer-l {
+    height: 40px;
+  }
+}
 
 
 </style>
