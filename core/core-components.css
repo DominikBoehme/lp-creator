@@ -252,6 +252,23 @@
   border-radius: 50%;
   flex: 0 0 auto;
 }
+/* --- Robustify step numbers (sichtbarer Kreis, Override bei Bedarf) --- */
+.steps-3col__step-number,
+.steps-4col__step-number {
+  /* visuell eindeutig: weiße Fläche, dünner Rand */
+  background-color: #FFFFFF;      /* stellt sicher, dass der Kreis sichtbar ist */
+  border: 1px solid #E0E0E0;     /* gleiche Farbe wie lp-border-soft */
+  color: #333333;                /* Zahl-Farbe */
+  box-sizing: border-box;        /* präzise Größe inkl. Border */
+  z-index: 2;                    /* über Linie und anderen Elementen */
+}
+
+/* Linie unter der Header-Zeile liegt darunter */
+.steps-3col__step-line,
+.steps-4col__step-line {
+  z-index: 1;
+}
+
 
 /* Titel-Abstand (steuert auch Abstand zur Linie) */
 .steps-3col__step-title,
