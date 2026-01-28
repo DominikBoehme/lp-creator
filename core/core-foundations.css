@@ -15,6 +15,13 @@
    - Keine Farben, keine Margins
    ========================================================= */
 
+/* AEM: reserviertes Topmodul ausblenden
+   damit der erste Content (Hero) bündig unter der Navigation startet */
+.topmodule-wrapper {
+  display: none;
+}
+
+
 /* =========================================================
    COLORS
    ========================================================= */
