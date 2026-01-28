@@ -332,6 +332,7 @@
 
 
 
+<style>
 /* =========================================================
    Modul: steps-3col / steps-4col
    Typ: Steps Modul
@@ -374,7 +375,7 @@
 }
 
 .steps-4col__step-title{
-  margin: 0 0 8px 0;
+  margin: 0 16px;
 }
 
 /* Verbindungslinie – Desktop (horizontal) */
@@ -385,9 +386,7 @@
   background-color: #333333;
 }
 
-.steps-4col__step-line{
-  margin-left: 16px;
-}
+
 
 /* letzte Linie ausblenden */
 .steps-3col__steps .grid-item:last-child .steps-3col__step-line,
@@ -414,7 +413,8 @@
     margin-bottom: 8px;
   }
 
-  .steps-3col__step-title{
+  .steps-3col__step-title,
+  .steps-4col__step-title{
     margin: 0 0 8px 0;
   }
 
@@ -439,7 +439,7 @@
     display: none;
   }
 }
-
+</style>
 
 
 
