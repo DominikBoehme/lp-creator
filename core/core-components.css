@@ -219,7 +219,103 @@
   }
 }
 
+<style>
+/* =========================================================
+   Modul: steps-3col / steps-4col
+   Zweck: Darstellung von Kreis + Verbindungslinien
+   Abhängigkeiten:
+   - AEM Grid (grid / grid-item / one-*)
+   - Foundations (lp-border-soft, Typo aus Cosma)
+   ========================================================= */
 
+.steps-3col__step,
+.steps-4col__step{
+  position: relative;
+}
+
+/* Header-Zeile: Kreis – Titel – Linie */
+.steps-3col__step-header,
+.steps-4col__step-header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Kreis */
+.steps-3col__step-number,
+.steps-4col__step-number{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+/* Titel-Abstand (steuert auch Abstand zur Linie) */
+.steps-3col__step-title,
+.steps-4col__step-title{
+  margin: 0 16px;
+}
+
+/* Verbindungslinie – Desktop */
+.steps-3col__step-line,
+.steps-4col__step-line{
+  flex: 1;
+  height: 1px;
+  background-color: #333333;
+}
+
+/* letzte Linie ausblenden */
+.steps-3col__steps .grid-item:last-child .steps-3col__step-line,
+.steps-4col__steps .grid-item:last-child .steps-4col__step-line{
+  display: none;
+}
+
+/* ===================== Mobile ===================== */
+@media (max-width: 668px){
+  .steps-3col__step,
+  .steps-4col__step{
+    padding-left: 56px;
+  }
+
+  .steps-3col__step-number,
+  .steps-4col__step-number{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .steps-3col__step-header,
+  .steps-4col__step-header{
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .steps-3col__step-title,
+  .steps-4col__step-title{
+    margin: 0 0 8px 0;
+  }
+
+  /* Verbindungslinie – Mobile (vertikal) */
+  .steps-3col__step-line,
+  .steps-4col__step-line{
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    bottom: -16px;
+    width: 1px;
+    height: auto;
+    background-color: #333333;
+  }
+
+  .steps-3col__steps .grid-item:last-child .steps-3col__step-line,
+  .steps-4col__steps .grid-item:last-child .steps-4col__step-line{
+    display: none;
+  }
+}
+</style>
 
 
 /* =========================================================
