@@ -13,6 +13,8 @@
    ========================================================= */
 
 
+
+
 /* =========================================================
    Modul: hero-bleed
    Typ: Hero Sondermodul (Bleed / Overlay)
@@ -331,115 +333,19 @@
 
 
 
-
-<style>
 /* =========================================================
-   Modul: steps-3col / steps-4col
-   Typ: Steps Modul
+   Modul: animated-counter
 
-   Zweck:
-   - Struktur & Verbindung der Steps
-   - horizontale Linie Desktop, vertikale Linie Mobile
-
-   Regeln:
-   - Kein Grid-Nachbau (AEM Grid)
-   - Keine Typografie
-   - Keine Farben (Ausnahme: Verbindungslinie bewusst #333333)
    ========================================================= */
 
-.steps-3col__step,
-.steps-4col__step{
-  position: relative;
+.animated-counter__value{
+  margin-bottom:8px;
 }
 
-.steps-3col__step-header,
-.steps-4col__step-header{
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
+.animated-counter__label{
+  margin-top:0;
 }
 
-.steps-3col__step-number,
-.steps-4col__step-number{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  flex: 0 0 auto;
-}
-
-.steps-3col__step-title{
-  margin: 0 16px;
-}
-
-.steps-4col__step-title{
-  margin: 0 16px;
-}
-
-/* Verbindungslinie – Desktop (horizontal) */
-.steps-3col__step-line,
-.steps-4col__step-line{
-  flex: 1;
-  height: 1px;
-  background-color: #333333;
-}
-
-
-
-/* letzte Linie ausblenden */
-.steps-3col__steps .grid-item:last-child .steps-3col__step-line,
-.steps-4col__steps .grid-item:last-child .steps-4col__step-line{
-  display: none;
-}
-
-@media (max-width: 668px){
-  .steps-3col__step,
-  .steps-4col__step{
-    padding-left: 56px;
-  }
-
-  .steps-3col__step-number,
-  .steps-4col__step-number{
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .steps-3col__step-header,
-  .steps-4col__step-header{
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .steps-3col__step-title,
-  .steps-4col__step-title{
-    margin: 0 0 8px 0;
-  }
-
-  /* Verbindungslinie – Mobile (vertikal) */
-  .steps-3col__step-line,
-  .steps-4col__step-line{
-    position: absolute;
-    left: 20px;
-    top: 40px;
-    bottom: -16px;
-    width: 1px;
-    height: auto;
-    background-color: #333333;
-  }
-
-  .steps-4col__step-line{
-    margin-left: 0;
-  }
-
-  .steps-3col__steps .grid-item:last-child .steps-3col__step-line,
-  .steps-4col__steps .grid-item:last-child .steps-4col__step-line{
-    display: none;
-  }
-}
-</style>
 
 
 
@@ -713,38 +619,5 @@
 .checkmark-list__text{
   margin:0;
 }
-/* =========================================================
-   LP Spacer – Vertikaler Abstand zwischen Modulen
-   - .lp-spacer-xl: Desktop 80px | Mobile (<= 767px) 50px
-   - .lp-spacer-l : Desktop 50px | Mobile (<= 767px) 40px
-   ========================================================= */
-
-.lp-spacer-xl,
-.lp-spacer-l {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-
-.lp-spacer-xl {
-  height: 80px;
-}
-
-.lp-spacer-l {
-  height: 50px;
-}
-
-@media (max-width: 767px) {
-  .lp-spacer-xl {
-    height: 50px;
-  }
-
-  .lp-spacer-l {
-    height: 40px;
-  }
-}
 
 
-</style>
