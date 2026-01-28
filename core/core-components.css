@@ -274,7 +274,7 @@
 }
 
 /* ===================== Mobile ===================== */
-@media (max-width: 668px){
+@media (max-width: 740px){
   .steps-3col__step,
   .steps-4col__step{
     padding-left: 56px;
