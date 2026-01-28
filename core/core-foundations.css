@@ -15,13 +15,6 @@
    - Keine Farben, keine Margins
    ========================================================= */
 
-/* AEM: reserviertes Topmodul ausblenden
-   damit der erste Content (Hero) bündig unter der Navigation startet */
-.topmodule-wrapper {
-  display: none;
-}
-
-
 /* =========================================================
    COLORS
    ========================================================= */
@@ -52,6 +45,11 @@
 .lp-text-charcoal { color:#333333 !important; }
 .lp-text-white    { color:#FFFFFF !important; }
 
+/* AEM: reserviertes Topmodul ausblenden
+   damit der erste Content (Hero) bündig unter der Navigation startet */
+.topmodule-wrapper {
+  display: none !important;
+}
 
 /* =========================================================
    TYPOGRAPHY – COSMA GUARD / FALLBACK
