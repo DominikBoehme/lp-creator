@@ -243,4 +243,20 @@
 
 .lp-media--contain img{ object-fit:contain; }
 .lp-media--cover img{ object-fit:cover; }
+/* =========================================================
+   LP Creator – Spacer Modules
+   ========================================================= */
+
+.lp-spacer-xl {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+.lp-spacer-l {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
 </style>
