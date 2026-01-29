@@ -268,4 +268,15 @@
   width: 100%;
   height: 40px;
 }
+/* =========================================================
+   TEXT HIGHLIGHT (inline)
+   ========================================================= */
+
+.lp-text-highlight{
+  background: linear-gradient(
+    transparent 60%,
+    #3DF5DC 60%
+  );
+  padding: 0 2px;
+}
 
