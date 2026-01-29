@@ -447,11 +447,12 @@
    Counter animated
    ========================================================= */
 
-/* Counter: Werte sind UI-Zahlen, keine semantischen Headings */
-.counter-animated [class^="font-heading-"],
-.counter-animated [class*=" font-heading-"] {
+/* Counter: nur der Zahlenwert bekommt keinen Bottom-Abstand */
+.counter-animated .counter-animated__item > [class^="font-heading-"],
+.counter-animated .counter-animated__item > [class*=" font-heading-"] {
   margin-bottom: 0;
 }
+
 
 
 
