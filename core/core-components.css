@@ -1,11 +1,10 @@
-
 /* =========================================================
-   LP Creator – core-components.css
+   LP Creator – core-components.css (canonical, commented)
 
    Enthält ausschließlich Modul-CSS für bestehende Module
    gemäß Module Editability Matrix.
 
-   Regeln:
+   Regeln (verbindlich):
    - Keine Typografie
    - Keine Farben
    - Kein eigenes Grid (außer bei expliziten Sondermodulen)
@@ -13,22 +12,9 @@
    ========================================================= */
 
 
-
-
 /* =========================================================
    Modul: hero-bleed
    Typ: Hero Sondermodul (Bleed / Overlay)
-
-   Eigenschaften:
-   - Vollflächiges Hero-Visual (Full-Bleed)
-   - Content-Kachel liegt über dem Bild
-   - Eigenes Layout (kein AEM-Grid)
-   - Mobile: Bild oben, Content darunter
-
-   Einschränkungen:
-   - Keine Typografie
-   - Keine Farben
-   - Kein eigenes Grid außerhalb dieses Moduls
    ========================================================= */
 
 .hero-bleed{
@@ -37,7 +23,6 @@
   align-items: center;
 }
 
-/* Full-Bleed Bild */
 .hero-bleed__image{
   position: relative;
   z-index: 0;
@@ -47,14 +32,12 @@
   height: 53.1rem;
 }
 
-/* Bild & Content überlagern (Grid-Overlap) */
 .hero-bleed__image,
 .hero-bleed__content{
   grid-row: 1 / -1;
   grid-column: 1 / -1;
 }
 
-/* Content-Container (Kachel) */
 .hero-bleed__content{
   position: relative;
   z-index: 1;
@@ -64,20 +47,17 @@
   width: 48%;
 }
 
-/* Responsive: Content volle Breite bei kleineren Viewports */
 @media (max-width: 900px){
   .hero-bleed__content{
     width: 100%;
   }
 }
 
-/* Mobile-Anpassungen */
 @media (max-width: 668px){
   .hero-bleed__image{
     height: 20rem;
   }
 
-  /* Mobile: nicht mehr überlagern */
   .hero-bleed__image,
   .hero-bleed__content{
     grid-row: auto;
@@ -92,38 +72,24 @@
 }
 
 /* =========================================================
-   Overlay stacking fix (robust across Hero variants)
-   - stellt sicher, dass das Media-Inner im Stapelkontext unter der Content-Kachel bleibt
-   - wirkt für hero-bleed (und kompatibel mit hero-full-width)
+   Overlay stacking fix (Hero)
    ========================================================= */
 
-.hero-bleed__image .lp-media__inner {
+.hero-bleed__image .lp-media__inner{
   position: absolute;
   inset: 0;
-  z-index: 0; /* Bild ganz unten */
+  z-index: 0;
 }
 
-.hero-bleed__content {
+.hero-bleed__content{
   position: relative;
-  z-index: 2; /* Content darüber */
+  z-index: 2;
 }
-
 
 
 /* =========================================================
    Modul: hero-split
    Typ: Hero Sondermodul (Split)
-
-   Eigenschaften:
-   - Eigenes Layout (kein AEM-Grid)
-   - Full-Bleed Bild ab Viewport-Mitte
-   - Feste / geklemmte Höhe auf Desktop
-   - Mobile Stack (Bild oben, Text unten)
-
-   Einschränkungen:
-   - Keine Typografie
-   - Keine Farben
-   - Kein eigenes Grid-System außerhalb dieses Moduls
    ========================================================= */
 
 .hero-split{
@@ -138,7 +104,6 @@
   max-width:1157px;
   margin:0 auto;
   padding:0 16px;
-
   height:100%;
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -221,10 +186,6 @@
 
 /* =========================================================
    Modul: steps-3col / steps-4col
-   Zweck: Darstellung von Kreis + Verbindungslinien
-   Abhängigkeiten:
-   - AEM Grid (grid / grid-item / one-*)
-   - Foundations (lp-border-soft, Typo aus Cosma)
    ========================================================= */
 
 .steps-3col__step,
@@ -232,7 +193,6 @@
   position: relative;
 }
 
-/* Header-Zeile: Kreis – Titel – Linie */
 .steps-3col__step-header,
 .steps-4col__step-header{
   display: flex;
@@ -240,7 +200,6 @@
   margin-bottom: 16px;
 }
 
-/* Kreis */
 .steps-3col__step-number,
 .steps-4col__step-number{
   display: inline-flex;
@@ -250,32 +209,23 @@
   height: 40px;
   border-radius: 50%;
   flex: 0 0 auto;
-}
-/* --- Robustify step numbers (sichtbarer Kreis, Override bei Bedarf) --- */
-.steps-3col__step-number,
-.steps-4col__step-number {
-  /* visuell eindeutig: weiße Fläche, dünner Rand */
-  background-color: #FFFFFF;      /* stellt sicher, dass der Kreis sichtbar ist */
-  border: 1px solid #E0E0E0;     /* gleiche Farbe wie lp-border-soft */
-  color: #333333;                /* Zahl-Farbe */
-  box-sizing: border-box;        /* präzise Größe inkl. Border */
-  z-index: 2;                    /* über Linie und anderen Elementen */
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  color: #333333;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
-/* Linie unter der Header-Zeile liegt darunter */
 .steps-3col__step-line,
-.steps-4col__step-line {
+.steps-4col__step-line{
   z-index: 1;
 }
 
-
-/* Titel-Abstand (steuert auch Abstand zur Linie) */
 .steps-3col__step-title,
 .steps-4col__step-title{
   margin: 0 16px;
 }
 
-/* Verbindungslinie – Desktop */
 .steps-3col__step-line,
 .steps-4col__step-line{
   flex: 1;
@@ -283,13 +233,11 @@
   background-color: #333333;
 }
 
-/* letzte Linie ausblenden */
 .steps-3col__steps .grid-item:last-child .steps-3col__step-line,
 .steps-4col__steps .grid-item:last-child .steps-4col__step-line{
   display: none;
 }
 
-/* ===================== Mobile ===================== */
 @media (max-width: 740px){
   .steps-3col__step,
   .steps-4col__step{
@@ -314,7 +262,6 @@
     margin: 0 0 8px 0;
   }
 
-  /* Verbindungslinie – Mobile (vertikal) */
   .steps-3col__step-line,
   .steps-4col__step-line{
     position: absolute;
@@ -333,26 +280,8 @@
 }
 
 
-
 /* =========================================================
    Modul: teaser-split-image-left / teaser-split-image-right
-   Typ: Teaser Sondermodul (Split)
-
-   Zweck:
-   - kapselt das komplette Layout-Verhalten der Split-Teaser
-   - ersetzt sämtliches Inline-/Modul-CSS
-   - Split-Module sind explizite Sonderfälle
-
-   WICHTIG:
-   - keine Typografie
-   - keine Farben
-   - kein Grid-Nachbau
-   - nur Layout- & Strukturregeln
-   ========================================================= */
-
-
-/* =========================================================
-   Basis
    ========================================================= */
 
 .teaser-split{
@@ -362,11 +291,6 @@
 .teaser-split__grid{
   align-items: stretch;
 }
-
-
-/* =========================================================
-   Media
-   ========================================================= */
 
 .teaser-split__media-wrapper{
   height: 400px;
@@ -385,11 +309,6 @@
   display: block;
 }
 
-
-/* =========================================================
-   Content
-   ========================================================= */
-
 .teaser-split__content{
   height: 400px;
   display: flex;
@@ -398,20 +317,10 @@
   align-items: flex-start;
 }
 
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
 .teaser-split__cta{
   display: inline-flex;
   align-self: flex-start;
 }
-
-
-/* =========================================================
-   Mobile
-   ========================================================= */
 
 @media (max-width:668px){
   .teaser-split__media-wrapper{
@@ -421,17 +330,6 @@
   .teaser-split__content{
     height: auto;
   }
-
-  /* -------------------------------------------------------
-     Reihenfolge
-
-     image-left:
-     - DOM-Reihenfolge bleibt korrekt
-     - keine Umordnung nötig
-
-     image-right:
-     - Image soll auf Mobile über dem Content stehen
-     ------------------------------------------------------- */
 
   .teaser-split-image-right .teaser-split__media-col{
     order: 1;
@@ -443,32 +341,13 @@
 }
 
 
-
-
-
-
-
 /* =========================================================
    Modul: callout
-   Varianten: -base | -illu | -expert
-
-   Zweck:
-   - Layout- & Strukturregeln
-   - bewusst kein visuelles Styling
-
-   Regeln:
-   - Keine Typografie
-   - Keine Farben
-   - Kein Grid-Nachbau
    ========================================================= */
 
 .callout{
   display:block;
 }
-
-/* ---------------------------------------------------------
-   Card Padding
-   --------------------------------------------------------- */
 
 .callout--base,
 .callout--illu,
@@ -483,10 +362,6 @@
     padding:24px;
   }
 }
-
-/* ---------------------------------------------------------
-   Layout (Icon / Content)
-   --------------------------------------------------------- */
 
 .callout__layout{
   display:flex;
@@ -504,18 +379,10 @@
   }
 }
 
-/* ---------------------------------------------------------
-   Illustration / Icons
-   --------------------------------------------------------- */
-
 .callout__illu{
   width:56px;
   height:56px;
 }
-
-/* ---------------------------------------------------------
-   Expert Block
-   --------------------------------------------------------- */
 
 .callout__expert{
   display:flex;
@@ -529,15 +396,9 @@
   border-radius:9999px;
 }
 
+
 /* =========================================================
    Modul: ekomi-reviews
-   Beschreibung: eKomi Bewertungsmodul mit Siegel & Reviews
-
-   Regeln:
-   - Nur modul-spezifisches Layout
-   - Keine Typografie
-   - Keine Farben
-   - Kein eigenes Grid
    ========================================================= */
 
 .ekomi-reviews__badge-wrapper{
@@ -602,15 +463,10 @@
   width:22px;
   height:22px;
 }
+
+
 /* =========================================================
    Modul: servicetiles
-   Beschreibung: Service-Kacheln (Layout & Struktur)
-
-   Regeln:
-   - Keine Typografie
-   - Keine Farben
-   - Kein Hover-Styling
-   - Kein eigenes Grid
    ========================================================= */
 
 .servicetiles__link{
@@ -633,13 +489,11 @@
   display:block;
 }
 
-/* Desktop Icon */
 .servicetiles__icon--desktop{
   width:48px;
   height:48px;
 }
 
-/* Mobile Icon */
 .servicetiles__icon--mobile{
   display:none;
   width:24px;
@@ -663,12 +517,6 @@
 
 /* =========================================================
    Modul: checkmark-list
-   Zweck: Vorteils-Liste mit festem Checkmark-Icon
-
-   Regeln:
-   - Keine Typografie
-   - Keine Farben (Icon als Asset)
-   - Kein eigenes Grid
    ========================================================= */
 
 .checkmark-list{
@@ -711,5 +559,3 @@
 .checkmark-list__text{
   margin:0;
 }
-
-
