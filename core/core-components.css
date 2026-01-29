@@ -529,11 +529,8 @@
   border-radius:9999px;
 }
 
-
-
-
 /* =========================================================
-   Modul: ekomi-reviews
+   Modul: ekomi
    Beschreibung: eKomi Bewertungsmodul mit Siegel & Reviews
 
    Regeln:
@@ -543,68 +540,69 @@
    - Kein eigenes Grid
    ========================================================= */
 
-.ekomi-reviews__badge-wrapper{
-  text-align:center;
+.ekomi__badge-wrapper{
+  text-align: center;
 }
 
-.ekomi-reviews__headline{
-  text-align:center;
+.ekomi__headline{
+  text-align: center;
 }
 
-.ekomi-reviews__intro{
-  text-align:center;
+.ekomi__intro{
+  text-align: center;
 }
 
-.ekomi-reviews__badge{
-  display:block;
-  width:112px;
-  height:auto;
-  margin:0 auto;
+.ekomi__badge{
+  display: block;
+  width: 112px;
+  height: auto;
+  margin: 0 auto;
 }
 
-.ekomi-reviews__list{
-  align-items:flex-start;
+.ekomi__list{
+  align-items: flex-start;
 }
 
-.ekomi-reviews__meta{
-  display:flex;
-  align-items:center;
-  gap:8px;
+.ekomi__meta{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.ekomi-reviews__avatar{
-  width:32px;
-  height:32px;
-  border-radius:9999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 auto;
+.ekomi__avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
 }
 
-.ekomi-reviews__avatar-icon{
-  display:block;
-  width:24px;
-  height:24px;
+.ekomi__avatar-icon{
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
-.ekomi-reviews__rating{
-  display:flex;
-  align-items:center;
-  gap:8px;
+.ekomi__rating{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.ekomi-reviews__stars{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
+.ekomi__stars{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.ekomi-reviews__star{
-  display:block;
-  width:22px;
-  height:22px;
+.ekomi__star{
+  display: block;
+  width: 22px;
+  height: 22px;
 }
+
 
 
 
