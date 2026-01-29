@@ -443,8 +443,14 @@
 }
 
 
+/* =========================================================
+   Counter animated
+   ========================================================= */
 
-
+.counter-animated .counter-animated__item [class^="font-heading-"],
+.counter-animated .counter-animated__item [class*=" font-heading-"] {
+  margin-bottom: 0;
+}
 
 
 
