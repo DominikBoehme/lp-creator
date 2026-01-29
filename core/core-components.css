@@ -59,7 +59,6 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 16px;
   justify-items: start;
   padding: 32px;
   width: 48%;
