@@ -89,25 +89,41 @@
     });
   }
 
-  /* =========================================
-     ACCORDION
-     ========================================= */
+ /* =========================================
+   Accordion (modern)
+   Bestandteil von core-interactions.js
+   Zweck:
+   - Toggle des Accordion-States
+   - Setzt .is-open und aria-expanded
+   - Kein Layout-JS, nur State-Management
+   ========================================= */
+
+(function () {
   function initAccordion() {
     var accordions = document.querySelectorAll('.accordion');
     if (!accordions.length) return;
 
-    if (window.IS24 && IS24.Accordion && typeof IS24.Accordion.init === 'function') {
-      accordions.forEach(function (el) {
-        var dl = el.querySelector('dl.accordion');
-        if (dl && dl.id) {
-          IS24.Accordion.init(dl.id);
-        }
+    accordions.forEach(function (accordion) {
+      var triggers = accordion.querySelectorAll('.accordion__trigger');
+
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var item = trigger.closest('.accordion__item');
+          if (!item) return;
+
+          var isOpen = item.classList.contains('is-open');
+
+          // Toggle state
+          item.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
       });
-    }
+    });
   }
 
-  onReady(function () {
-    initCounterAnimated();
+  if (document.readyState !== 'loading') {
     initAccordion();
-  });
+  } else {
+    document.addEventListener('DOMContentLoaded', initAccordion);
+  }
 })();
