@@ -726,3 +726,24 @@
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+/* =========================================================
+   Counter Animated (modern, global)
+   Bestandteil von core-components.css
+   Zweck:
+   - Spacing & Typo-Feinjustierung für Counter-Modul
+   - Keine Animation (kommt aus core-interactions.js)
+   ========================================================= */
+
+.counter-animated__item > [class^="font-heading-"],
+.counter-animated__item > [class*=" font-heading-"] {
+  margin-bottom: 0; /* kein Abstand unter dem Zahlenwert */
+}
+
+.counter-animated__label {
+  margin-bottom: var(--space-m, 16px);
+}
+
+/* Sicherstellen, dass Text sauber getrennt ist */
+.counter-animated__item p:last-child {
+  margin-bottom: 0;
+}
