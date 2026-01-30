@@ -637,65 +637,95 @@
   margin:0;
 }
 
-/* =========================================
-   Accordion (global)
-   ========================================= */
-
 /* =========================================================
-   LP Creator – core-accordion.css
+   Accordion (modern, global)
+   Bestandteil von core-components.css
    Zweck:
-   - Globales Accordion-CSS (aus Modul ausgelagert)
-   - Definiert Default-Zustand, Pfeile und Toggle-Animation
-   - Wird einmal pro Seite eingebunden
+   - Visuelles & interaktives Accordion-Pattern
+   - State-Steuerung über .is-open
+   - JS setzt nur Klassen, kein Layout-JS
    ========================================================= */
 
-/* Grundstruktur */
-.accordion dl {
-  margin: 0;
+/* Wrapper */
+.accordion {
+  border-top: 1px solid #e5e5e5;
 }
 
-.accordion dt {
+/* Headline */
+.accordion__headline {
+  margin-bottom: var(--space-m, 24px);
+}
+
+/* Item */
+.accordion__item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Trigger */
+.accordion__trigger {
+  appearance: none;
+  background: none;
+  border: 0;
+  width: 100%;
+  padding: var(--space-m, 20px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-  position: relative;
+  text-align: left;
 }
 
-.accordion dd {
-  display: none;
+.accordion__question {
+  font-size: inherit;
 }
 
-/* Geöffneter Zustand (wird durch JS gesetzt) */
-.accordion dt.is-open + dd {
-  display: block;
-}
-
-/* Indicator (Pfeil) */
-.accordion__indicator {
-  position: absolute;
-  right: 0;
-  top: 50%;
+/* Chevron */
+.accordion__chevron {
   width: 16px;
   height: 16px;
-  transform: translateY(-50%);
+  position: relative;
+  flex: 0 0 auto;
 }
 
-.accordion__indicator::before {
+.accordion__chevron::before {
   content: "";
-  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 8px;
   height: 8px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  transform: rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
   transition: transform 0.2s ease;
 }
 
-/* Pfeil bei geöffnetem Zustand */
-.accordion dt.is-open .accordion__indicator::before {
-  transform: rotate(45deg);
+/* Panel */
+.accordion__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
 }
 
-/* Sanfter Abstand für Inhalte */
-.accordion dd p:last-child {
-  margin-bottom: 0;
+.accordion__panel p {
+  padding-bottom: var(--space-m, 20px);
 }
 
+/* Open state */
+.accordion__item.is-open .accordion__panel {
+  max-height: 1000px; /* ausreichend groß, um Inhalt zu zeigen */
+}
+
+.accordion__item.is-open .accordion__chevron::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.accordion__item.is-open .accordion__trigger {
+  padding-bottom: var(--space-s, 12px);
+}
+
+/* Accessibility: Fokus */
+.accordion__trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
