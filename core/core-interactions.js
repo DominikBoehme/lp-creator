@@ -89,34 +89,42 @@
     });
   }
 
- /* =========================================
+/* =========================================
    Accordion (modern)
    Bestandteil von core-interactions.js
    Zweck:
-   - Toggle des Accordion-States
+   - Zuverlässiges Öffnen/Schließen über echte Höhen
    - Setzt .is-open und aria-expanded
-   - Kein Layout-JS, nur State-Management
+   - Verhindert CSS-max-height-Raten
    ========================================= */
 
 (function () {
   function initAccordion() {
-    var accordions = document.querySelectorAll('.accordion');
-    if (!accordions.length) return;
+    var triggers = document.querySelectorAll('.accordion__trigger');
+    if (!triggers.length) return;
 
-    accordions.forEach(function (accordion) {
-      var triggers = accordion.querySelectorAll('.accordion__trigger');
+    triggers.forEach(function (trigger) {
+      var item = trigger.closest('.accordion__item');
+      var panel = item ? item.querySelector('.accordion__panel') : null;
+      if (!item || !panel) return;
 
-      triggers.forEach(function (trigger) {
-        trigger.addEventListener('click', function () {
-          var item = trigger.closest('.accordion__item');
-          if (!item) return;
+      // Initialzustand sicher schließen
+      panel.style.maxHeight = '0px';
 
-          var isOpen = item.classList.contains('is-open');
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
 
-          // Toggle state
-          item.classList.toggle('is-open');
-          trigger.setAttribute('aria-expanded', String(!isOpen));
-        });
+        if (isOpen) {
+          // schließen
+          panel.style.maxHeight = '0px';
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          // öffnen
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
       });
     });
   }
