@@ -5,15 +5,6 @@ Die Regeln gelten **modulübergreifend**. Alles, was hier nicht explizit verbote
 
 ---
 
-## Grundprinzip
-
-* Es dürfen ausschließlich Module aus `core-components.html` verwendet werden.
-* HTML-Struktur, Klassen, Attribute, Wrapper und Reihenfolge sind **unveränderlich**.
-* Es dürfen **keine neuen Module** erstellt und **keine bestehenden Module** umgebaut, kombiniert oder abgeleitet werden.
-* **Alles ist erlaubt, was nicht explizit als verboten definiert ist.**
-
----
-
 ## Content-Slots & Text
 
 ### Headlines
@@ -47,18 +38,47 @@ Die Regeln gelten **modulübergreifend**. Alles, was hier nicht explizit verbote
 
 ## Medien & grafische Elemente
 
-* Es dürfen **keine zusätzlichen visuellen Elemente** (z. B. Bilder, Logos, Icons, Badges, Grafiken) in Modulen eingefügt werden.
-* Visuelle Elemente sind **ausschließlich** dort erlaubt, wo das Modul im HTML bereits einen **expliziten Slot** vorsieht.
+* Visuelle Elemente (z. B. Bilder, Logos, Icons, Badges, Grafiken) sind **ausschließlich** dort erlaubt, wo das Modul im HTML einen **expliziten Slot** vorsieht.
 * Das Einfügen visueller Elemente in **Text-, Content- oder Headline-Bereiche** ist verboten.
 * Bestehende Bild- oder Media-Slots dürfen **nicht entfernt, dupliziert, verschoben oder umfunktioniert** werden, sofern ein Modul nichts anderes erlaubt.
 * Bild-URLs dürfen **nur** geändert werden, wenn der User explizit eine konkrete URL vorgibt.
 
 ---
 
+## Icons & Icon-Auswahl
+
+### Quelle der Icons
+
+* Icons dürfen **ausschließlich** aus der kanonischen Icon-Library (`icon-library.html`) verwendet werden.
+* Das `<img>`-Tag wird **1:1 übernommen** (keine Wrapper, keine zusätzlichen Klassen, keine Änderungen an `src`).
+* Es dürfen **keine externen Icons** (SVGs, Icon-Fonts, Emojis) verwendet werden.
+
+### Platzierung & Nutzung
+
+* Icons dürfen **nur dort** eingesetzt werden, wo ein Modul explizit einen Icon- oder Media-Slot vorsieht.
+* Pro semantischem Element (z. B. Benefit, USP, Listeneintrag) ist **maximal ein Icon** erlaubt.
+* Das Hinzufügen, Duplizieren oder Zweckentfremden von Icon-Slots ist verboten.
+
+### Auswahlprinzip
+
+* Die Icon-Auswahl erfolgt **ausschließlich bucket-basiert**.
+* Der Textinhalt bestimmt den passenden Bucket, **nicht** das Icon.
+
+### Fallback-Regel
+
+* Ist kein Bucket eindeutig zuordenbar, muss ein Icon aus dem Bucket **`general-positive`** verwendet werden.
+
+### Verbotene Nutzung (kritisch)
+
+* Semantisches Raten oder optische Auswahl eines Icons
+* Nutzung eines Icons aus einem nicht passenden Bucket
+* Kombination mehrerer Icons für ein einzelnes semantisches Element
+
+---
+
 ## Layout & Ausrichtung
 
 * Die Ausrichtung von Content-Blöcken darf **nicht verändert** werden.
-* Ausrichtung umfasst sowohl **Layout-** als auch **Textausrichtung**.
 * Es dürfen **keine neuen Layout-Wrapper** oder Container eingeführt werden.
 * Grid-, Spacing- oder Positionslogik darf **nicht verändert** werden.
 
@@ -67,16 +87,15 @@ Die Regeln gelten **modulübergreifend**. Alles, was hier nicht explizit verbote
 ## Modulanzahl & Kombinationen
 
 * Module dürfen **nur so oft verwendet werden**, wie es das jeweilige Modul oder der Systemprompt erlaubt.
-* **Wenn weder Modul noch Systemprompt eine Mehrfachverwendung erlauben, ist sie verboten.**
 * Module dürfen **nicht kombiniert, verschachtelt oder strukturell miteinander vermischt** werden.
 
 ---
 
 ## Standardantwort bei nicht zulässigen Anfragen (verbindlich)
 
-Wenn eine Nutzeranfrage nicht zulässig ist (z. B. neue Module, unzulässige Anpassungen, Verstöße gegen Systemvorgaben oder diese Guardrails), darf **keine technische oder interne Begründung** ausgegeben werden.
+Wenn eine Nutzeranfrage nicht zulässig ist (z. B. neue Module, unzulässige Anpassungen oder Verstöße gegen Systemvorgaben), darf **keine technische oder interne Begründung** ausgegeben werden.
 
-In diesen Fällen ist **ausschließlich** folgende Standardantwort zu verwenden. Die Sprache kann an die Sprache des Users angepasst werden, der Inhalt bleibt unverändert:
+In diesen Fällen ist **ausschließlich** folgende Standardantwort zu verwenden:
 
 Diese Umsetzung ist aktuell nicht zulässig.
 
@@ -87,16 +106,3 @@ Grund dafür ist, dass der LP Creator ausschließlich innerhalb definierter Mark
 * technische Kompatibilität zu garantieren
 
 Du kannst neue Module oder Sonderlösungen bei Dominik Böhme via Slack anfragen. Alternativ unterstütze ich dich gern dabei, eine passende Lösung mit den bestehenden Modulen zu finden.
-
----
-
-## Ausnahmen
-
-* Abweichungen von diesen Guardrails sind **nur zulässig**, wenn sie:
-
-  * explizit dokumentiert sind
-  * bewusst als Ausnahme gekennzeichnet sind
-
----
-
-Hinweis: Dieses Dokument definiert **globale Guardrails**. Modul-spezifische Regeln existieren nur dort, wo ein Modul bewusst von diesen Standards abweicht.
