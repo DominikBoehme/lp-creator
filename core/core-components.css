@@ -636,3 +636,66 @@
 .checkmark-list__text{
   margin:0;
 }
+
+/* =========================================
+   Accordion (global)
+   ========================================= */
+
+/* =========================================================
+   LP Creator – core-accordion.css
+   Zweck:
+   - Globales Accordion-CSS (aus Modul ausgelagert)
+   - Definiert Default-Zustand, Pfeile und Toggle-Animation
+   - Wird einmal pro Seite eingebunden
+   ========================================================= */
+
+/* Grundstruktur */
+.accordion dl {
+  margin: 0;
+}
+
+.accordion dt {
+  cursor: pointer;
+  position: relative;
+}
+
+.accordion dd {
+  display: none;
+}
+
+/* Geöffneter Zustand (wird durch JS gesetzt) */
+.accordion dt.is-open + dd {
+  display: block;
+}
+
+/* Indicator (Pfeil) */
+.accordion__indicator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+}
+
+.accordion__indicator::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+/* Pfeil bei geöffnetem Zustand */
+.accordion dt.is-open .accordion__indicator::before {
+  transform: rotate(45deg);
+}
+
+/* Sanfter Abstand für Inhalte */
+.accordion dd p:last-child {
+  margin-bottom: 0;
+}
+
