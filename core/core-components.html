@@ -425,123 +425,93 @@
 </section>
 
 <!-- =========================================================
-     ACCORDION
+     ACCORDION (modern, HTML-only)
+     Zweck:
+     - FAQ / aufklappbare Inhalte
+     - Rein deklarativ (kein Inline-JS, kein Inline-CSS)
+     - Interaktion erfolgt über globales core-interactions.js
      ========================================================= -->
 
 <section>
   <div class="accordion">
-    <div class="margin-vertical-l">
-      <a id="faq_anchor" class="navitem h2" title="FAQ"></a>
-      <h2 class="font-heading-medium-bold margin-top-m">Headline-medium-bold</h2>
+    <h2 class="accordion__headline font-heading-medium-bold margin-bottom-m">
+      Headline-medium-bold
+    </h2>
 
-      <dl class="accordion" id="faq-accordion">
-        <dt class="border-top padding-vertical-m">
-          <span class="accordion__indicator"></span>
-          <p class="font-body-large-regular">Lorem ipsum dolor sit amet?</p>
-        </dt>
-        <dd class="padding-vertical-m">
-          <span class="rteListFix">
-            <p class="font-body-large-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </span>
-        </dd>
+    <!-- Item 1 -->
+    <div class="accordion__item">
+      <button
+        class="accordion__trigger"
+        type="button"
+        aria-expanded="false"
+      >
+        <span class="accordion__question font-body-large-regular">
+          Frage 1 – Lorem ipsum dolor sit amet?
+        </span>
+        <span class="accordion__chevron" aria-hidden="true"></span>
+      </button>
 
-        <dt class="border-top padding-vertical-m">
-          <span class="accordion__indicator"></span>
-          <p class="font-body-large-regular">Lorem ipsum dolor sit amet?</p>
-        </dt>
-        <dd class="padding-vertical-m">
-          <span class="rteListFix">
-            <p class="font-body-large-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </span>
-        </dd>
-
-        <dt class="border-top padding-vertical-m">
-          <span class="accordion__indicator"></span>
-          <p class="font-body-large-regular">Lorem ipsum dolor sit amet?</p>
-        </dt>
-        <dd class="padding-vertical-m">
-          <span class="rteListFix">
-            <p class="font-body-large-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </span>
-        </dd>
-
-        <dt class="border-top padding-vertical-m">
-          <span class="accordion__indicator"></span>
-          <p class="font-body-large-regular">Lorem ipsum dolor sit amet?</p>
-        </dt>
-        <dd class="padding-vertical-m">
-          <span class="rteListFix">
-            <p class="font-body-large-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </span>
-        </dd>
-
-        <dt class="border-top padding-vertical-m">
-          <span class="accordion__indicator"></span>
-          <p class="font-body-large-regular">Lorem ipsum dolor sit amet?</p>
-        </dt>
-        <dd class="padding-vertical-m">
-          <span class="rteListFix">
-            <p class="font-body-large-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </span>
-        </dd>
-      </dl>
+      <div class="accordion__panel">
+        <p class="font-body-large-regular">
+          Antwort 1 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
     </div>
 
-    <link rel="stylesheet" href="/etc/designs/is24/clientlibs/components/accordion.css" type="text/css" />
-    <script src="/etc/designs/is24/clientlibs/components/accordion.js"></script>
-    <script src="/etc/designs/is24/clientlibs/components/rtefixer.js"></script>
+    <!-- Item 2 -->
+    <div class="accordion__item">
+      <button
+        class="accordion__trigger"
+        type="button"
+        aria-expanded="false"
+      >
+        <span class="accordion__question font-body-large-regular">
+          Frage 2 – Lorem ipsum dolor sit amet?
+        </span>
+        <span class="accordion__chevron" aria-hidden="true"></span>
+      </button>
 
-    <script>
-      (function () {
-        function initAccordion() {
-          if (window.IS24 && IS24.Accordion && typeof IS24.Accordion.init === 'function') {
-            IS24.Accordion.init('faq-accordion');
-          }
-        }
+      <div class="accordion__panel">
+        <p class="font-body-large-regular">
+          Antwort 2 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
 
-        if (document.readyState !== 'loading') {
-          initAccordion();
-        } else {
-          document.addEventListener('DOMContentLoaded', initAccordion);
-        }
-      })();
-    </script>
+    <!-- Item 3 -->
+    <div class="accordion__item">
+      <button
+        class="accordion__trigger"
+        type="button"
+        aria-expanded="false"
+      >
+        <span class="accordion__question font-body-large-regular">
+          Frage 3 – Lorem ipsum dolor sit amet?
+        </span>
+        <span class="accordion__chevron" aria-hidden="true"></span>
+      </button>
+
+      <div class="accordion__panel">
+        <p class="font-body-large-regular">
+          Antwort 3 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- =========================================================
-     COUNTER ANIMATED
+     COUNTER ANIMATED (modern, HTML-only)
+     Zweck:
+     - Darstellung animierter Kennzahlen
+     - Rein deklarativ (kein Inline-JS, kein Inline-CSS)
+     - Animation erfolgt über globales core-interactions.js
      ========================================================= -->
 
 <section class="counter-animated">
-  <style>
-    /* =============================
-       Counter – Spacing Rules
-       ============================= */
-
-    /* 1. Zahlenwert: kein Bottom-Margin (egal welche Heading-Größe) */
-    .counter-animated__item > [class^="font-heading-"]:first-child,
-    .counter-animated__item > [class*=" font-heading-"]:first-child {
-      margin-bottom: 0;
-    }
-
-    /* 2. Headline (Label) unter dem Wert: definierter Abstand zum Body */
-    .counter-animated__label {
-      margin-bottom: var(--space-m, 16px);
-    }
-  </style>
-
   <div class="grid grid-flex gutter">
+
+    <!-- Item 1 -->
     <div class="counter-animated__item grid-item one-third palm-one-whole">
       <div class="font-heading-xlarge-bold">98,5&nbsp;%</div>
       <div class="counter-animated__label font-heading-small-bold">Headline-small-bold</div>
@@ -550,6 +520,7 @@
       </p>
     </div>
 
+    <!-- Item 2 -->
     <div class="counter-animated__item grid-item one-third palm-one-whole">
       <div class="font-heading-xlarge-bold">100.000+</div>
       <div class="counter-animated__label font-heading-small-bold">Headline-small-bold</div>
@@ -558,6 +529,7 @@
       </p>
     </div>
 
+    <!-- Item 3 -->
     <div class="counter-animated__item grid-item one-third palm-one-whole">
       <div class="font-heading-xlarge-bold">200+</div>
       <div class="counter-animated__label font-heading-small-bold">Headline-small-bold</div>
@@ -565,87 +537,11 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </div>
+
   </div>
-
-  <script>
-    (function () {
-      function initCounterAnimated() {
-        var elements = document.querySelectorAll(
-          '.counter-animated__item > [class^="font-heading-"], .counter-animated__item > [class*=" font-heading-"]'
-        );
-
-        function startCount(el) {
-          var originalText = el.textContent.trim();
-          var match = originalText.match(/(\d+[.,]?\d*)/);
-          if (!match) return;
-
-          var numberPart = match[1];
-          var prefix = originalText.slice(0, match.index);
-          var suffix = originalText.slice(match.index + numberPart.length);
-
-          var hasComma = numberPart.indexOf(',') !== -1;
-          var cleaned = numberPart.replace(/\./g, '').replace(',', '.');
-          var decimals = cleaned.indexOf('.') !== -1 ? cleaned.split('.')[1].length : 0;
-          var target = parseFloat(cleaned);
-          if (isNaN(target)) return;
-
-          var duration = 1200;
-          var start = null;
-
-          function easeOut(t) {
-            return t * (2 - t);
-          }
-
-          function step(timestamp) {
-            if (!start) start = timestamp;
-            var progress = Math.min((timestamp - start) / duration, 1);
-            var value = target * easeOut(progress);
-
-            var display = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toString();
-            if (hasComma) display = display.replace('.', ',');
-
-            el.textContent = prefix + display + suffix;
-
-            if (progress < 1) {
-              window.requestAnimationFrame(step);
-            } else {
-              el.textContent = originalText;
-            }
-          }
-
-          window.requestAnimationFrame(step);
-        }
-
-        if (!('IntersectionObserver' in window)) {
-          elements.forEach(startCount);
-          return;
-        }
-
-        var observer = new IntersectionObserver(
-          function (entries, obs) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                startCount(entry.target);
-                obs.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.4 }
-        );
-
-        elements.forEach(function (el) {
-          observer.observe(el);
-        });
-      }
-
-      if (document.readyState !== 'loading') {
-        initCounterAnimated();
-      } else {
-        document.addEventListener('DOMContentLoaded', initCounterAnimated);
-      }
-    })();
-  </script>
 </section>
+
+
 
 <!-- =========================================================
      CALLOUT BASE
