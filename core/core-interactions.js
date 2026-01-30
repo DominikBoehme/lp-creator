@@ -1,9 +1,5 @@
 /* =========================================================
    LP Creator – core-interactions.js
-   Zweck:
-   - Zentrale Initialisierung aller interaktiven Module
-   - Kein Framework
-   - Defensive Initialisierung (Module optional)
    ========================================================= */
 
 (function () {
@@ -22,7 +18,6 @@
     var items = document.querySelectorAll(
       '.counter-animated__item > [class^="font-heading-"], .counter-animated__item > [class*=" font-heading-"]'
     );
-
     if (!items.length) return;
 
     function startCount(el) {
@@ -47,24 +42,20 @@
         return t * (2 - t);
       }
 
-      function step(timestamp) {
-        if (!start) start = timestamp;
-        var progress = Math.min((timestamp - start) / duration, 1);
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
         var value = target * easeOut(progress);
 
         var display = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toString();
         if (hasComma) display = display.replace('.', ',');
 
         el.textContent = prefix + display + suffix;
-
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          el.textContent = originalText;
-        }
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = originalText;
       }
 
-      window.requestAnimationFrame(step);
+      requestAnimationFrame(step);
     }
 
     if (!('IntersectionObserver' in window)) {
@@ -72,66 +63,54 @@
       return;
     }
 
-    var observer = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            startCount(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
 
     items.forEach(function (el) {
       observer.observe(el);
     });
   }
 
-/* =========================================
-   Accordion (modern)
-   Bestandteil von core-interactions.js
-   Zweck:
-   - Zuverlässiges Öffnen/Schließen über echte Höhen
-   - Setzt .is-open und aria-expanded
-   - Verhindert CSS-max-height-Raten
-   ========================================= */
-
-(function () {
+  /* =========================================
+     ACCORDION (modern)
+     ========================================= */
   function initAccordion() {
     var triggers = document.querySelectorAll('.accordion__trigger');
     if (!triggers.length) return;
 
     triggers.forEach(function (trigger) {
       var item = trigger.closest('.accordion__item');
-      var panel = item ? item.querySelector('.accordion__panel') : null;
+      var panel = item.querySelector('.accordion__panel');
       if (!item || !panel) return;
 
-      // Initialzustand sicher schließen
+      // Initial state
+      trigger.setAttribute('aria-expanded', 'false');
       panel.style.maxHeight = '0px';
 
       trigger.addEventListener('click', function () {
         var isOpen = item.classList.contains('is-open');
 
         if (isOpen) {
-          // schließen
-          panel.style.maxHeight = '0px';
           item.classList.remove('is-open');
           trigger.setAttribute('aria-expanded', 'false');
+          panel.style.maxHeight = '0px';
         } else {
-          // öffnen
-          panel.style.maxHeight = panel.scrollHeight + 'px';
           item.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
         }
       });
     });
   }
 
-  if (document.readyState !== 'loading') {
+  onReady(function () {
+    initCounterAnimated();
     initAccordion();
-  } else {
-    document.addEventListener('DOMContentLoaded', initAccordion);
-  }
+  });
 })();
