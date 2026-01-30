@@ -638,12 +638,12 @@
 }
 
 /* =========================================================
-   Accordion (modern, global)
+   Accordion (modern, global – FINAL)
    Bestandteil von core-components.css
    Zweck:
-   - Visuelles & interaktives Accordion-Pattern
-   - State-Steuerung über .is-open
-   - JS setzt nur Klassen, kein Layout-JS
+   - Produktionsstabiles Accordion-Pattern
+   - JS steuert State (.is-open) + Inline-max-height
+   - CSS steuert ausschließlich Darstellung & Transition
    ========================================================= */
 
 /* Wrapper */
@@ -661,7 +661,7 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* Trigger */
+/* Trigger (Button) */
 .accordion__trigger {
   appearance: none;
   background: none;
@@ -687,6 +687,7 @@
   flex: 0 0 auto;
 }
 
+/* Default: geschlossen → Pfeil nach unten */
 .accordion__chevron::before {
   content: "";
   position: absolute;
@@ -696,14 +697,14 @@
   height: 8px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   transition: transform 0.2s ease;
 }
 
 /* Panel */
 .accordion__panel {
   overflow: hidden;
-  max-height: 0;
+  max-height: 0; /* wird durch JS gesetzt */
   transition: max-height 0.25s ease;
 }
 
@@ -712,12 +713,8 @@
 }
 
 /* Open state */
-.accordion__item.is-open .accordion__panel {
-  max-height: 1000px; /* ausreichend groß, um Inhalt zu zeigen */
-}
-
 .accordion__item.is-open .accordion__chevron::before {
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(-135deg); /* Pfeil nach oben */
 }
 
 .accordion__item.is-open .accordion__trigger {
